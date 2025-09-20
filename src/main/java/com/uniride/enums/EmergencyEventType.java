@@ -1,0 +1,16 @@
+
+package com.uniride.enums;
+
+public enum EmergencyEventType {
+    PANIC_BUTTON,
+    ACCIDENT,
+    MEDICAL_EMERGENCY,
+    HARASSMENT,
+    KIDNAPPING_ATTEMPT,
+    DRIVER_IMPAIRMENT,
+    THREATENING_BEHAVIOR,
+    ROBBERY_ATTEMPT,
+    SUSPICIOUS_ACTIVITY,
+    STRANGER_DANGER,
+    OTHER
+}
