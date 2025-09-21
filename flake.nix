@@ -41,7 +41,7 @@
 
             # Ensure Gradle wrapper is present (if not already generated)
             echo "Ensuring Gradle wrapper..."
-            (cd /home/justin/Documents/CSC312/SE/Project/UniRide && gradle wrapper)
+            (cd .. && gradle wrapper)
 
             echo "Development shell ready."
             echo "To run backend: ./gradlew bootRun"
@@ -57,7 +57,6 @@
               #!${pkgs.bash}/bin/bash
               export JAVA_HOME=${jdk}
               export PATH=$JAVA_HOME/bin:$PATH
-              cd /home/justin/Documents/CSC312/SE/Project/UniRide
               ./gradlew bootRun
             ''
           }";
@@ -76,7 +75,7 @@
               export PATH=${pkgs.gawk}/bin:$PATH
               export PATH=${pkgs.coreutils}/bin:$PATH
 
-              cd /home/justin/Documents/CSC312/SE/Project/UniRide/UniRide
+              cd UniRide
 
               echo "Installing frontend dependencies (if not already installed)..."
               npm install
@@ -90,8 +89,8 @@
               fi
 
               echo "Detected local IP: $LOCAL_IP"
-              PASSENGER_FILE="/home/justin/Documents/CSC312/SE/Project/UniRide/UniRide/app/(tabs)/passenger.tsx"
-              WEBSOCKET_SERVICE_FILE="/home/justin/Documents/CSC312/SE/Project/UniRide/UniRide/hooks/WebSocketService.ts"
+              PASSENGER_FILE="./UniRide/app/(tabs)/passenger.tsx"
+              WEBSOCKET_SERVICE_FILE="./UniRide/hooks/WebSocketService.ts"
 
               # Use sed to replace the placeholder IP address.
               sed -i "s#http://192.168.1.10:8080#http://$LOCAL_IP:8080#g" "$PASSENGER_FILE"
